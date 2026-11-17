@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shiba Login</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@800&display=swap');body{font-family:'Outfit',sans-serif}</style>
+</head>
+<body class="bg-[#fff8f0] min-h-screen flex items-center justify-center p-6">
+<div class="bg-white rounded-[32px] p-8 border-4 border-black shadow-[10px_10px_0px_0px_black] max-w-sm w-full text-center">
+<div class="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-orange-400 to-pink-500 flex items-center justify-center text-3xl font-black text-white">S</div>
+<h1 class="text-3xl font-black mt-4">SHIBA SYSTEM</h1>
+<p class="font-bold opacity-60 text-sm mt-1">Manager Login</p>
+
+<input id="username" placeholder="Username" class="w-full mt-6 border-2 border-black rounded-full px-5 py-3 font-bold">
+<input id="password" type="password" placeholder="Password" class="w-full mt-3 border-2 border-black rounded-full px-5 py-3 font-bold">
+
+<button onclick="login()" class="w-full mt-5 bg-black text-white rounded-full py-3.5 font-black text-lg">Login →</button>
+
+<p class="text-xs font-bold mt-4 opacity-50">Default: admin / shiba123</p>
+<p id="error" class="text-red-500 font-bold text-sm mt-2 hidden">Wrong password!</p>
+</div>
+
+<script>
+function login(){
+  const u = document.getElementById('username').value;
+  const p = document.getElementById('password').value;
+  // Default logins - you can change
+  if((u==="admin" && p==="shiba123") || (u==="staff" && p==="staff123")){
+    localStorage.setItem('shiba_logged_in','true');
+    localStorage.setItem('shiba_user',u);
+    window.location.href='index.html';
+  }else{
+    document.getElementById('error').classList.remove('hidden');
+  }
+}
+</script>
+</body>
+</html>
